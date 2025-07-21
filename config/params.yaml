@@ -1,0 +1,10 @@
+model:
+  type: xgboost
+  max_depth: 6
+  n_estimators: 100
+  learning_rate: 0.1
+
+features:
+  lags: [1, 7, 30]
+  time_features: [day_of_week, is_weekend, is_holiday, month]
+  product_features: [item, category, brand, price, discount, promotion]
