@@ -125,6 +125,11 @@ This helps retail teams:
 
 ---
 
+📄 **[Extended Project Documentation →](docs/EXTENDED_PROJECT_DOCUMENTATION.md)**
+Covers full project lifecycle, deployment, testing, and enhancement roadmap.
+
+---
+
 ## 🙋‍♂️ Author
 
 > Built by **[Sumit Das](https://www.linkedin.com/in/sumit-das-ai/)** – AI Engineer | GenAI | MLOps
