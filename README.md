@@ -48,6 +48,27 @@ retail-demand-forecasting/
 - Supports scalable training with a single global model
 - Clean modular design with Jupyter + Python scripts
 
+### ⚠️ Forecasting-Time Feature Limitations
+
+At forecasting time (i.e., when predicting for future dates), some features used during model training are **not available** and were therefore **excluded from the final Ridge regression model**:
+
+#### ❌ Excluded Features:
+1. **Lag and Rolling Average Sales Features**
+   - `sales_lag_1`, `sales_lag_3`, `sales_lag_7`
+   - `sales_7d_avg`, `sales_30d_avg`, `sales_30d_trend`
+   - These depend on **future sales** that haven't happened yet.
+
+2. **Inventory Signals**
+   - `stock_available`, `stockout_flag`
+   - These are only known in real-time, not ahead of time.
+
+#### ✅ Solution:
+We retrained the final Ridge model using only the **"forecast-safe" features**:
+- `item`, `category`, `price`, `promotion`, `discount`
+- `brand`, `day_of_week`, `month`, `is_weekend`, `is_holiday`
+
+This ensures the model can make reliable forecasts using only known or planned inputs.
+
 ---
 
 ## 📦 Setup
